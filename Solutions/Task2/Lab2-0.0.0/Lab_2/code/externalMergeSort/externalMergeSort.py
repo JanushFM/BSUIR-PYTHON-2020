@@ -22,12 +22,10 @@ def divide_f_to_parts(file_path):
     with open(file_path, "r") as f:
         for line in f:
             temp_array.append(int(line))
-            # if sys.getsizeof(temp_array) >= const_one_GB:
-            if len(temp_array) >= 1000000:
+            if len(temp_array) >= 10000:
                 division(temp_array)
         if len(temp_array) != 0:
             division(temp_array)
-        # print("Numbers of files to merge:", len(list_of_runs))
 
 
 def division(temp_array):

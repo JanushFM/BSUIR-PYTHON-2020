@@ -83,7 +83,7 @@ def lex(string):
             string = string[1:]
             continue
 
-        elif c in JSON_SYNTAX:
+        if c in JSON_SYNTAX:
             tokens.append(c)
             string = string[1:]
             continue

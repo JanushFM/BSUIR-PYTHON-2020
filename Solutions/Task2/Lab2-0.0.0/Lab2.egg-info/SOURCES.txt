@@ -28,6 +28,8 @@ Lab_2/tests/Decorator/TestDecorator.py
 Lab_2/tests/Decorator/__init__.py
 Lab_2/tests/JSON/JsonTests.py
 Lab_2/tests/JSON/__init__.py
+Lab_2/tests/Singleton/SingletonTest.py
+Lab_2/tests/Singleton/__init__.py
 Lab_2/tests/Sort/TestSort.py
 Lab_2/tests/Sort/__init__.py
 Lab_2/tests/Vector/TestVector.py

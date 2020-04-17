@@ -20,8 +20,6 @@ def parse_array(tokens):
         else:
             tokens = tokens[1:]
 
-    raise Exception('Expected end-of-array bracket')
-
 
 def parse_object(tokens):
     json_object = {}
@@ -51,7 +49,6 @@ def parse_object(tokens):
             raise Exception('Expected comma after pair in object, got: {}'.format(t))
 
         tokens = tokens[1:]
-    raise Exception('Expected end-of-object bracket')
 
 
 def parse(tokens, is_root=False):

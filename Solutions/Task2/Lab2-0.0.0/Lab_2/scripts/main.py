@@ -1,17 +1,16 @@
 from Lab_2.tests import *
 import unittest
 
-menu = '\n'.join(["\n", '1) Test Sort', '2) Test JSON', '3) Test Vector', "4) Test Cached", "or enter 'EXIT'"])
+menu = '\n'.join(
+    ["\n", '1) Test Sort', '2) Test JSON', '3) Test Vector', "4) Test Cached", '5) Test Singleton', "or enter 'EXIT',  "])
 
 tests_menu = {
     '1': TestSortMethods,
     '2': TestJsonMethods,
     '3': TestVectorMethods,
-    '4': TestDecorator
+    '4': TestDecorator,
+    '5': TestSingleton
 }
-
-
-
 
 if __name__ == '__main__':
     while True:
@@ -25,4 +24,3 @@ if __name__ == '__main__':
             unittest.TextTestRunner().run(suite)
         else:
             print('Inccorect input. Try again !')
-

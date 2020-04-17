@@ -2,7 +2,6 @@ import unittest
 from Lab_2.code.Vector.Vector import Vector
 from math import sqrt
 
-
 V1_LEN = sqrt(30)
 
 NV1 = Vector([1, 2, 3, 4])
@@ -15,6 +14,8 @@ V1_SUM_V2 = Vector([6, 8, 10, 12])
 V1_SUB_V2 = Vector([-4, -4, -4, -4])
 V1_MUL_A = Vector([3, 6, 9, 12])
 V1_MUL_V2 = Vector([5, 12, 21, 32])
+
+V1_NEG = Vector([- 1, -2, -3, -4])
 
 
 class TestVectorMethods(unittest.TestCase):
@@ -41,6 +42,7 @@ class TestVectorMethods(unittest.TestCase):
     def test_eq(self):
         self.assertEqual(NV1 == NV2, False)
         self.assertEqual(NV1 == NV1, True)
+        self.assertEqual(- V1_NEG == NV1, True)
         with self.assertRaises(TypeError):
             NV1 == 15
         with self.assertRaises(Exception):
