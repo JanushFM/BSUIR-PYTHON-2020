@@ -1,10 +1,9 @@
-
 class Cached:
     def __init__(self, func):
         self.func = func
         self.cache = {}
 
-    def __call__(self, *args):
+    def __call__(self, *args, **kwargs):
         if args in self.cache:
             return self.cache[args]
         f_result = self.func(*args)

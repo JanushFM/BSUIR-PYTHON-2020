@@ -9,28 +9,21 @@ def create_file(file_name):
 
 
 class TestSortMethods(unittest.TestCase):
-    test_list = []
-
-    def load_file(self, unsorted_file):
-        with open(unsorted_file, "r") as f:
-            for line in f:
-                self.test_list.append(int(line))
 
     def compare(self, sorted_file_name):
-        self.test_list.sort()
-        with open(sorted_file_name, "r") as f:
-            for el in self.test_list:
-                if el != int(f.readline()):
-                    return False
-        return True
+        with open(sorted_file_name) as fp:
+            prev_int = int(fp.readline())
+            for line in fp:
+                next_int = int(line)
+                self.assertTrue(next_int >= prev_int)
+                prev_int = next_int
 
     def test_sort(self):
         unsorted_file_name = "numbers.txt"
         sorted_file_name = "sorted_file.txt"
         create_file(unsorted_file_name)
         external_sort(unsorted_file_name, sorted_file_name)
-        self.load_file(unsorted_file_name)
-        self.assertTrue(self.compare(sorted_file_name))
+        self.compare(sorted_file_name)
 
     def test_sort_exception(self):
         with self.assertRaises(Exception):

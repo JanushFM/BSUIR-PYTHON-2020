@@ -1,6 +1,3 @@
-import json
-
-
 def dumps(obj):
     if isinstance(obj, str):
         return '"' + obj + '"'
@@ -21,36 +18,3 @@ def dumps(obj):
 
         return "{" + ', '.join(
             ["{}: {}".format(dumps(k), dumps(v)) for k, v in zip(keys, obj.values())]) + "}"
-
-
-if __name__ == '__main__':
-    test1 = {
-        23: True,
-        "2": "14",
-        "children": ("Ann", "Billy"),
-        "name": "John",
-        "age": 30,
-        "married": True,
-        "divorced": False,
-        "pets": None
-    }
-
-    test2 = {
-        "in_dic1": {"a": 1, "b": 2, "c": 3,
-                    "in_in_dic1": {"a": 4, "b": 5, "c": "6",
-                                   "in_in_in_dic1": {"a": 7, "b": 8, "c": "9"}}},
-        "name": "John",
-        "age": 30,
-        "married": True,
-        "divorced": False,
-        "children": ("Ann", "Billy"),
-        "pets": None,
-        "cars": [
-            {"model": "BMW 230", "mpg": 27.5},
-            {"model": "Ford Edge", "mpg": 24.1}
-        ]
-    }
-
-    original = json.dumps(test2)
-    mine = dumps(test2)
-    print(original == mine)
