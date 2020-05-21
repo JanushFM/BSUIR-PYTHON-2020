@@ -1,0 +1,39 @@
+{% extends 'blog/main.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container" style="padding-top: 1%">
+
+
+        <div class="row">
+
+            <div class="card card-body">
+
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <label>Product:
+                        {{ form.product }}
+                    </label>
+
+                    <label>Amount:
+                        <input type="number" value="1" name="amount" width="10px" max= "{{ max }}" min="1" class="count_field" required id = "id_amount">
+
+                    </label>
+                    <label>Phone number:
+                        {{ form.phone_number }}
+                    </label>
+                    <label>Shipping address:
+                        {{ form.shipping_address }}
+                    </label>
+
+
+                    <input class="btn btn-success" type="submit" name="Submit" value="Submit">
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}

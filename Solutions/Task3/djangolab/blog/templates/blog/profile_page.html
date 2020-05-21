@@ -1,0 +1,37 @@
+{% extends 'blog/main.html' %}
+{% load static %}
+
+
+{% block content %}
+
+    <
+    <style>
+        .profile-pic {
+            max-width: 200px;
+            max-height: 200px;
+            margin: 0 auto;
+            border-radius: 50%;
+        }
+    </style>
+
+    <br>
+    <div class="container" style="padding-top: 1%">
+
+
+        <div class="card card-body" style="text-align: center">
+
+            <form method="POST" action="">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <input class="btn btn-primary" type="submit" value="Save changes" name="Update Information">
+                {% for message in messages %}
+                    <p id="messages">{{ message }}</p>
+                {% endfor %}
+            </form>
+        </div>
+
+    </div>
+
+
+{% endblock %}

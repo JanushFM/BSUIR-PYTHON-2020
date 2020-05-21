@@ -1,0 +1,76 @@
+{% extends 'blog/main.html' %}
+{% load static %}
+
+
+{% block content %}
+
+    <main role="main">
+
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h1 class="jumbotron-heading">{{ paintings.first.author }} album</h1>
+                <p class="lead text-muted">{{ paintings.first.author.description_small }}</p>
+
+            </div>
+        </section>
+
+        <div class="album py-5 bg-light">
+            <div class="container">
+
+                <div class="row">
+                    {% for painting in paintings %}
+                        <div class="col-md-4">
+                            <form method="POST" enctype="multipart/form-data">
+                                <div class="card mb-4 shadow-sm">
+                                    <img src="{{ painting.image_file.url }}" alt=""
+                                         class="bd-placeholder-img card-img-top"
+                                         width="100%" height="225" alt="">
+
+
+                                    <div class="card-body">
+                                        <p class="card-text">{{ painting.description_small }}</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            {% if painting.number_available > 0 %}
+                                                <div class="btn-group">
+                                                    <a href="{{ painting.image_file.url }}"
+                                                       class="btn btn-sm btn-outline-secondary">View</a>
+                                                    {% if is_staff %}
+                                                        <button class="btn btn-sm btn-outline-secondary"
+                                                                disabled>Buy
+                                                        </button>
+                                                    {% else %}
+                                                        <a href="{% url 'create_order' painting.id %}"
+                                                           class="btn btn-sm btn-outline-secondary">Buy</a>
+                                                    {% endif %}
+                                                </div>
+                                                <small class="text-muted">{{ painting.price }} $ </small>
+                                            {% else %}
+                                                <div class="btn-group">
+                                                    <a href="{{ painting.image_file.url }}"
+                                                       class="btn btn-sm btn-outline-secondary">View</a>
+
+                                                    <button class="btn btn-sm btn-outline-secondary"
+                                                            disabled>Buy
+                                                    </button>
+
+                                                </div>
+                                                <small class="text-muted">No longer available </small>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+
+{% endblock %}
+

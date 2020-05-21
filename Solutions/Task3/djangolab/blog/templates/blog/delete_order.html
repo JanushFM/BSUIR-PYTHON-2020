@@ -1,0 +1,25 @@
+{% extends 'blog/main.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container" style="padding-top: 1%">
+
+
+
+                <div class="card card-body" >
+
+
+                    <p>Are you sure you want to delete "{{ item.product.name }}"?</p>
+
+                    <form action="{% url 'delete_order' item.id %}" method="POST">
+
+                        {% csrf_token %}
+                        <a class="btn btn-warning" href="{% url 'shopping_list' %}">Cancel</a>
+
+                        <input class="btn btn-danger" type="submit" value="Submit" name="Confirm">
+                    </form>
+                </div>
+
+
+    </div>
+{% endblock %}

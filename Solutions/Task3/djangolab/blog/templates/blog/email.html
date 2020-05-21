@@ -1,0 +1,5 @@
+Hello, {{ name }} !
+Your email is: {{ email }}
+To continue registration you have to confirm your email.
+Please click on the link below:
+http://{{ domain }}{% url 'activate' uidb64=uid token=token %}

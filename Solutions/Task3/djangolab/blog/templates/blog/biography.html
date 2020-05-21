@@ -1,0 +1,32 @@
+{% extends 'blog/main.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+    <div class="container bootstrap snippet" style="padding-top: 5%; font-family: 'Times New Roman',serif">
+        <div class="profile card">
+            <div class="profile-body">
+                <div class="profile-bio">
+                    <div class="row">
+                        <div class="col-md-5 text-center">
+                            <img class="img-thumbnail md-margin-bottom-10"
+                                 src="{{ artist.photo.url }}" alt="">
+                        </div>
+                        <div class="col-md-7">
+                            <h2>{{ artist.name }}</h2>
+
+                            <em>"{{ artist.quote }}"</em>
+                            <hr>
+                            <h5>{{ artist.description_big }}</h5>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
