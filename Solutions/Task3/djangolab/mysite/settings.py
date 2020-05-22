@@ -114,16 +114,6 @@ DATABASES = {
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'postgres',
-#         'USER': 'janush',
-#         'PASSWORD': '5681479fyz',
-#         'HOST': 'database-1.cyloubd47uwo.eu-central-1.rds.amazonaws.com',
-#         'PORT': '5432'
-#     }
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -159,14 +149,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-MAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'kirilnevadainspire@gmail.com'
-EMAIL_HOST_PASSWORD = '2976843q'
-
-
 STATIC_URL = '/static/'
 
 MEDIA_URL = '/images/'
@@ -176,13 +158,3 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
-
-AWS_ACCESS_KEY_ID = 'AKIAZY3POBA7V37CFI26'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'janush-bucket'
-
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-ADMIN_MEDIA_PREFIX = '/static/admin/'
